@@ -22,6 +22,6 @@ class ViewBaseAct : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityViewBaseBinding>(this, R.layout.activity_view_base)
-        binding.viewCtrl = ViewBaseCtrl()
+        binding.viewCtrl = ViewBaseCtrl(binding)
     }
 }

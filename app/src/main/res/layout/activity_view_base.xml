@@ -19,5 +19,20 @@
             android:text="测试"
             android:onClick="@{(view) -> viewCtrl.onClickCeshi(view)}"/>
 
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/postView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="postView"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewCtrl.viewModel.title}"
+            app:inputFilter="@{1}"
+            />
+
     </LinearLayout>
 </layout>
