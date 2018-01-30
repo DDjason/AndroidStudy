@@ -1,0 +1,32 @@
+ext {
+    isDebug = true
+
+    dependencies = [
+
+            //阿里路由框架
+            "arouter-api"         : "com.alibaba:arouter-api:1.2.1",
+            "arouter-compiler"    : "com.alibaba:arouter-compiler:1.1.2",
+
+            //RecycleView
+            "recyclerview"        : "com.android.support:recyclerview-v7:26.0.+",
+
+            //Glide 图片加载
+            "glide"               : "com.github.bumptech.glide:glide:3.7.0",
+
+            //dagger2 依赖注入框架
+            "dagger2-api"         : "com.google.dagger:dagger:2.7",
+            "dagger2-compiler"    : "com.google.dagger:dagger-compiler:2.7",
+
+            //Retrofit 网络访问框架
+            "retrofit2"           : "com.squareup.retrofit2:retrofit:2.3.0",
+            "retrofit2-gson"      : "com.squareup.retrofit2:converter-gson:2.1.0",
+            "retrofit2-okhttp-log": "com.squareup.okhttp3:logging-interceptor:3.4.1",
+
+            //RxJava2
+            'rxJava-api': 'io.reactivex.rxjava2:rxjava:2.0.0',
+            'rxJava-streams' : 'org.reactivestreams:reactive-streams:1.0.0',
+            'rxAndroid': 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            //Rx权限处理
+            'rxPermission2' :'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    ]
+}
