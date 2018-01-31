@@ -2,12 +2,14 @@ package com.jason.firework.study.moudle.viewctrl
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.jason.firework.study.R
 import com.jason.firework.study.base.inputfilterutil.InputFilters
@@ -15,6 +17,12 @@ import com.jason.firework.study.databinding.ActivityViewBaseBinding
 import com.jason.firework.study.moudle.viewdata.ViewBaseVM
 import com.jason.firework.study.utils.AndroidUtil
 import java.util.*
+import java.util.concurrent.LinkedBlockingDeque
+import java.util.concurrent.ThreadPoolExecutor
+import java.util.concurrent.TimeUnit
+
+
+
 
 /**
  * @author: Yangyd
@@ -36,6 +44,17 @@ class ViewBaseCtrl {
 
     constructor(binding: ActivityViewBaseBinding) {
         this.binding = binding
+
+        val field = InputMethodManager::class.java.getDeclaredField("DEBUG")
+//将字段的访问权限设为true：即去除private修饰符的影响
+        field.setAccessible(true)
+
+
+
+
+
+//把字段值设为200
+        field.set(null, true)
 
         binding!!.editBank.addTextChangedListener(object : TextWatcher {
             private var oldString = ""
@@ -101,6 +120,25 @@ class ViewBaseCtrl {
 
         set.start()
     }
+
+    fun onclickOpen(){
+        //val inputMethodManager = AndroidUtil.getActivity(binding!!.root).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        //inputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS)
+
+        var poolExecutor = ThreadPoolExecutor(3, 5,
+                1, TimeUnit.SECONDS, LinkedBlockingDeque<Runnable>(128))
+
+
+
+    }
+
+    fun onclickClose(){
+        val inputMethodManager = AndroidUtil.getActivity(binding!!.root).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(
+                AndroidUtil.getActivity(binding!!.root).getWindow().getDecorView().getWindowToken(), 0)
+    }
+
+
 
 
 }

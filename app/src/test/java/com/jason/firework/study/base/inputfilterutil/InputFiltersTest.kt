@@ -12,6 +12,5 @@ import org.junit.Test
 class InputFiltersTest {
     @Test
     fun newBankcardFormat() {
-
     }
 }

@@ -54,9 +54,14 @@ object InputFilters {
         view.filters = filters
     }
 
+    /**
+     * 通用bankcardFormat
+     */
     @JvmStatic fun newBankcardFormat(args: String,split: String) : String {
         var ret : String  = args.replace(" ","").replace(split,"")
-        if (Pattern.matches("^\\d{13,}$", ret)) {
+        if (Pattern.matches("^\\d{17,}$", ret)) {
+            ret = ret.replace("(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d*)".toRegex(), "$1" + split + "$2" + split + "$3" + split + "$4"+split + "$5")
+        }else if (Pattern.matches("^\\d{13,}$", ret)) {
             ret =  ret.replace("(\\d{4})(\\d{4})(\\d{4})(\\d*)".toRegex(), "$1"+split+"$2"+split+"$3"+split+"$4")
         }else if(Pattern.matches("^\\d{9,}$", ret)){
             ret =  ret.replace("(\\d{4})(\\d{4})(\\d*)".toRegex(), "$1"+split+"$2"+split+"$3")

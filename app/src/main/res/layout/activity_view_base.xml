@@ -34,6 +34,11 @@
             android:text="@={viewCtrl.viewModel.title}"
             app:inputFilter="@{1}"
             />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewCtrl.onclickOpen()}"
+            android:text="键盘"/>
 
     </LinearLayout>
 </layout>
