@@ -3,6 +3,8 @@ package com.jason.firework.study.base
 import android.app.Application
 import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 
 /**
  * @author: Yangyd
@@ -25,5 +27,9 @@ class MyApplication: Application(){
         ARouter.openDebug()
         ARouter.openLog()
         ARouter.init(this)
+    }
+
+    private fun initLogger(){
+        Logger.addLogAdapter(AndroidLogAdapter())
     }
 }

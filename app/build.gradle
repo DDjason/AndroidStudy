@@ -70,4 +70,7 @@ dependencies {
 //    kapt "com.android.databinding:compiler:$android_plugin_version"
     kapt 'com.android.databinding:compiler:3.0.1'
 
+    //添加Logger 日志
+    compile 'com.orhanobut:logger:2.1.1'
+
 }
